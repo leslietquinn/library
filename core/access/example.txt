@@ -1,0 +1,147 @@
+$modules = array(
+		'home',
+		'users',
+		'settings',
+		'announcements',
+		'customers',
+		'catagories',
+		'contacts',
+		'subscribers',
+		'logs',
+		'calendar',
+		'orders',
+		'suppliers',
+		'statistics',
+		'messages',
+		'products',
+		'tools',
+		'roles',
+		'purchases',
+		'stock',
+		'reports',
+		'sales',
+		'tickets',
+		'faqs',
+		'catalogue',
+		'schedules',
+		'appointments',
+		'batches',
+		'addresses',
+		'expenses',
+		'reviews',
+		'jobs',
+		'couriers',
+		'labels',
+		'invoicing',
+		'newsletters',
+		'templates',
+		'articles',
+		'topics',
+		'notes',
+		'campaigns',
+		'coupons',
+		'bookmarks',
+		'sitemap',
+		'dates',
+		'help',
+		'signout',
+		'unauthorised' );
+		
+	$access = new QAccess_Control();
+	$director = $access -> addRole( 'director' );
+	
+	$director -> addModules( $modules )
+		-> defaultPrivilege( 'show' )
+		-> addPrivileges( array( 'view', 'create', 'modify' ), 'users' )
+		-> addPrivileges( array(), 'settings' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove' ), 'announcements' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove', 'search', 'name', 'postcode', 'passwords' ), 'customers' )
+		-> addPrivileges( array( 'create', 'modify' ), 'catagories' )
+		-> addPrivileges( array( 'reply', 'view', 'modify', 'remove' ), 'contacts' )
+		-> addPrivileges( array( 'remove' ), 'subscribers' )
+		-> addPrivileges( array( 'view', 'reports', 'statistics', 'weekly', 'monthly' ), 'logs' )
+		-> addPrivileges( array( 'goto', 'view', 'create', 'viewentry', 'modifyentry', 'removeentry' ), 'calendar' )
+		-> addPrivileges( /* orders */ array( 'return', 'cancellation', 'viewentry', 'modifyentry', 'coupon', 'view', 'modify', 'remove', 'search', 'cancel', 'returns', 'queue', 'order', 'date', 'name', 'invoice' ), 'orders' )
+		-> addPrivileges( array( 'add', 'view', 'viewreport', 'create', 'modify', 'removereport' ), 'suppliers' )
+		-> addPrivileges( array(), 'statistics' )
+		-> addPrivileges( array( 'sent', 'view', 'access', 'create', 'modify', 'remove' ), 'messages' )
+		-> addPrivileges( /* products */ array( 'modifyglossary', 'removeglossary', 'glossary', 'alias', 'add', 'view', 'create', 'modify', 'images', 'remove', 'search', 'product', 'catagory', 'name', 'sale', 'modifyentry', 'removeentry' ), 'products' )
+		-> addPrivileges( array( 'database', 'query', 'logs', 'files', 'partialpurge', 'fullpurge' ), 'tools' )
+		-> addPrivileges( array( 'create' ), 'roles' )
+		-> addPrivileges( /* purchases */ array( 'listing', 'viewpayment', 'addpayment', 'payments', 'add', 'show', 'view', 'create', 'modify', 'remove', 'print', 'viewentry', 'modifyentry', 'removeentry', 'search', 'purchase', 'supplier', 'assignment' ), 'purchases' )
+		-> addPrivileges( array( 'view', 'modify' ), 'stock' )
+		-> addPrivileges( array( 'popularity', 'viewings', 'suppliers', 'catalogue' ), 'reports' )
+		-> addPrivileges( /* sales */ array( 'searchprospects', 'followups', 'export', 'search', 'viewfollowup', 'modifyfollowup', 'removefollowup', 'prospects', 'viewprospect', 'modifyprospect', 'followup', 'view', 'viewreport', 'create', 'modify', 'remove', 'removereport', 'cash', 'add', 'sale' ), 'sales' )
+		-> addPrivileges( /* tickets */ array( 'viewreturn', 'returns', 'viewitem', 'remove', 'charges', 'add', 'view', 'create', 'modify', 'searchpayments', 'ticketpayments', 'salepayments', 'viewpayment', 'addpayment', 'payments', 'modifyitem', 'removeitem', 'search', 'ticket', 'sale', 'date', 'assignment' ), 'tickets' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove' ), 'faqs' )
+		-> addPrivileges( array( 'create', 'modify', 'search', 'reference', 'suppliers' ), 'catalogue' ) 
+		-> addPrivileges( array( 'create', 'modify', 'remove' ), 'schedules' )
+		-> addPrivileges( /* batches */ array( 'readings', 'qc', 'add', 'view', 'create', 'modify', 'search', 'product', 'date', 'batch', 'addentry', 'viewentry', 'modifyentry' ), 'batches' )
+		-> addPrivileges( array( 'add', 'view', 'viewreport', 'create', 'modify', 'remove', 'removereport' ), 'addresses' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove' ), 'expenses' )
+		-> addPrivileges( array( 'add', 'view', 'modify', 'remove', 'viewreport', 'removereport' ), 'reviews' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'search', 'product', 'sale', 'job', 'assigned' ), 'jobs' )
+		-> addPrivileges( array( 'view', 'create', 'modify' ), 'couriers' ) 
+		-> addPrivileges( array( 'proceed' ), 'labels' ) 
+		-> addPrivileges( array( 'tickets', 'view', 'create', 'modify', 'orders', 'tickets' ), 'invoicing' )
+		-> addPrivileges( /* newsletters */ array( 'publish', 'add', 'view', 'create', 'modify', 'remove', 'sponsors', 'addentry', 'viewentry', 'modifyentry', 'removeentry', 'advertisements', 'viewadvertisement', 'modifyadvertisement', 'removeadvertisement' ), 'newsletters' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove' ), 'templates' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove' ), 'articles' )
+		-> addPrivileges( array( 'view', 'create', 'modify' ), 'topics' )
+		-> addPrivileges( array( 'view', 'modify', 'remove', 'create' ), 'notes' )
+		-> addPrivileges( /* campaigns */ array( 'view', 'create', 'mailshot', 'search', 'campaign', 'region', 'postal', 'coupon', 'mailshots', 'modify', 'remove', 'viewmailshot', 'modifymailshot', 'removemailshot' ), 'campaigns' )
+		-> addPrivileges( array( 'voucher', 'byvoucher', 'vouchers', 'add', 'create', 'modify', 'remove', 'search', 'postcodes', 'coupons', 'products', 'discounts' ), 'coupons' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove' ), 'bookmarks' )
+		-> addPrivileges( array(), 'sitemap' )
+		-> addPrivileges( array( 'view', 'create', 'modify', 'remove', 'overview' ), 'dates' )
+		-> addPrivileges( array(), 'help' )
+		-> addPrivileges( array(), 'signout' );
+		
+	$staff = $access -> addRole( 'staff' );
+	
+	$staff -> addModules( $modules )
+		-> addPrivileges( array( 'show' ), 'home' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify' ), 'users' )
+		-> addPrivileges( array(), 'settings' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify', 'remove' ), 'announcements' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify', 'remove', 'search', 'name', 'postcode', 'passwords' ), 'customers' )
+		-> addPrivileges( array( 'show' ), 'catagories' )
+		-> addPrivileges( array( 'show', 'view', 'modify', 'remove' ), 'contacts' )
+		-> addPrivileges( array( 'show', 'remove' ), 'subscribers' )
+		-> addPrivileges( array( 'show', 'view', 'reports', 'statistics', 'weekly', 'monthly' ), 'logs' )
+		-> addPrivileges( array( 'show', 'goto', 'view', 'create', 'viewentry', 'modifyentry', 'removeentry' ), 'calendar' )
+		-> addPrivileges( /* orders */ array( 'show', 'return', 'cancellation', 'viewentry', 'modifyentry', 'coupon', 'view', 'modify', 'remove', 'search', 'cancel', 'returns', 'queue', 'order', 'date', 'name', 'invoice' ), 'orders' )
+		-> addPrivileges( array(  ), 'suppliers' )
+		-> addPrivileges( array( 'show' ), 'statistics' )
+		-> addPrivileges( array( 'show' ), 'messages' )
+		-> addPrivileges( /* products */ array( 'show', 'glossary', 'alias', 'add', 'view', 'create', 'modify', 'images', 'remove', 'search', 'product', 'catagory', 'name', 'sale', 'modifyentry', 'removeentry' ), 'products' )
+		-> addPrivileges( array( 'show', 'logs', 'partialpurge', 'fullpurge' ), 'tools' )
+		-> addPrivileges( array( 'show' ), 'roles' )
+		-> addPrivileges( /* purchases */ array(  ), 'purchases' )
+		-> addPrivileges( array( 'show', 'view', 'modify' ), 'stock' )
+		-> addPrivileges( array( 'show', 'popularity', 'viewings' ), 'reports' )
+		-> addPrivileges( /* sales */ array( 'show', 'view', 'viewreport', 'create', 'modify', 'remove', 'removereport', 'cash', 'add', 'sale' ), 'sales' )
+		-> addPrivileges( /* tickets */ array( 'show', 'viewitem', 'remove', 'charges', 'add', 'view', 'create', 'modify', 'searchpayments', 'ticketpayments', 'salepayments', 'viewpayment', 'addpayment', 'payments', 'modifyitem', 'removeitem', 'search', 'ticket', 'sale', 'date', 'assignment' ), 'tickets' )
+		-> addPrivileges( array( 'show' ), 'faqs' )
+		-> addPrivileges( array( 'show', 'modify' ), 'catalogue' ) 
+		-> addPrivileges( array( 'show', 'create', 'modify', 'remove' ), 'schedules' )
+		-> addPrivileges( array( 'show', 'qc', 'add', 'view', 'create', 'modify', 'search', 'product', 'date', 'batch', 'addentry', 'viewentry', 'modifyentry' ), 'batches' )
+		-> addPrivileges( array(  ), 'addresses' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify', 'remove' ), 'expenses' )
+		-> addPrivileges( array( 'show', 'add', 'view', 'modify', 'remove', 'viewreport', 'removereport' ), 'reviews' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify', 'search', 'product', 'sale', 'job', 'assigned' ), 'jobs' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify' ), 'couriers' ) 
+		-> addPrivileges( array( 'show', 'proceed' ), 'labels' ) 
+		-> addPrivileges( array(  ), 'invoicing' )
+		-> addPrivileges( /* newsletters */ array( 'show', 'add', 'view', 'create', 'modify', 'remove', 'sponsors', 'addentry', 'viewentry', 'modifyentry', 'removeentry', 'advertisements', 'viewadvertisement', 'modifyadvertisement', 'removeadvertisement' ), 'newsletters' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify', 'remove' ), 'templates' )
+		-> addPrivileges( array( 'show', 'view', 'create', 'modify', 'remove' ), 'articles' )
+		-> addPrivileges( array( 'show', 'view' ), 'topics' )
+		-> addPrivileges( array(  ), 'notes' )
+		-> addPrivileges( /* campaigns */ array( 'show', 'view', 'create', 'mailshot', 'search', 'campaign', 'region', 'postal', 'coupon', 'mailshots', 'modify', 'remove', 'viewmailshot', 'modifymailshot', 'removemailshot' ), 'campaigns' )
+		-> addPrivileges( array( 'show', 'voucher', 'byvoucher', 'vouchers', 'add', 'create', 'modify', 'remove', 'search', 'postcodes', 'coupons', 'products', 'discounts' ), 'coupons' )
+		-> addPrivileges( array(  ), 'bookmarks' )
+		-> addPrivileges( array( 'show' ), 'sitemap' )
+		-> addPrivileges( array( 'show' ), 'help' )
+		-> addPrivileges( array( 'show' ), 'signout' );
+		
