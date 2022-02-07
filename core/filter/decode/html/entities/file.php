@@ -12,6 +12,20 @@
 		private string $encoding;
 		private string $format;
 		
+		/**
+		 * Class constructor
+		 * 
+		 * @param	$field_name				string
+		 * @param	$format					string [ENT_COMPAT, ENT_QUOTES, ENT_NOQUOTES, ENT_SUBSTITUTE]
+		 * @param	$encoding				string
+		 * 
+		 * @see 	https://www.php.net/manual/en/function.html-entity-decode.php
+		 * 
+		 * @access			public
+		 * @introduced		2022/02/07 [last modified]
+		 * @return			void
+		 */
+
 		public function __construct( string $field_name, string $format, string $encoding = 'UTF-8' ) {
 			$this -> field_name = $field_name;
 			$this -> encoding = $encoding;
@@ -35,8 +49,6 @@
 			$dataspace = array_shift( $args );
 			
 			$dataspace -> set( $this -> field_name, html_entity_decode( $dataspace -> get( $this -> field_name ), $this -> format, $this -> encoding ) );
-
-			//$dataspace -> set( $this -> field_name, mb_convert_encoding( $dataspace -> get( $this -> field_name ), 'HTML-ENTITIES', $this -> encoding ) );
 		}
 	}
 	
