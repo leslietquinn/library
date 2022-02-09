@@ -28,7 +28,7 @@
 			return array();
 		}
 		
-		abstract public function toArray();
+		abstract protected function toArray();
 	}
 	
 ?>

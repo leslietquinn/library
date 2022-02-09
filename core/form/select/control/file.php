@@ -60,13 +60,13 @@
 		/**
 		 * Prepare and return a data set suitable for a form control
 		 *
-		 * @access			public
+		 * @access			protected
 		 * @abstract
 		 *
 		 * @return			array
 		 */
 		 
-		abstract public function toArray();
+		abstract protected function toArray();
 	}
 	
 ?>
