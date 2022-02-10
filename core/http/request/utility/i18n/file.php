@@ -17,6 +17,7 @@
 		public function process() : void {
 			$args = func_get_args();
 			$dataspace = array_shift( $args );
+			$locale = str_replace( '_', '-', $dataspace -> get( 'session' ) -> get( QCommon::LOCALE_TOKEN ) );
 			
 			if( 
 				!( 
@@ -25,7 +26,7 @@
 					 *			matching current with the previous then reset
 					 */
 					 
-					( $dataspace -> get( 'lang' ) == $dataspace -> get( 'session' ) -> get( QCommon::LOCALE_TOKEN ) )
+					( $dataspace -> get( 'lang' ) == $locale )
 					&&
 					$dataspace -> get( 'session' ) -> has( QCommon::LOCALE_COUNTRY_TOKEN ) 
 					&& 
