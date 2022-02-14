@@ -23,12 +23,12 @@
 		
 		const CUSTOMER = '__customer__';
 		
-		const ADDRESS_LINE_1 = '__house__';
-		const ADDRESS_LINE_2 = '__street__';
-		const ADDRESS_LINE_3 = '__city__';
-		const ADDRESS_LINE_4 = '__region__';
-		const ADDRESS_LINE_5 = '__postcode__';
-		const ADDRESS_COUNTRY = '__country__';
+		const ADDRESS_LINE_1 = 'house';
+		const ADDRESS_LINE_2 = 'street';
+		const ADDRESS_LINE_3 = 'city';
+		const ADDRESS_LINE_4 = 'region';
+		const ADDRESS_LINE_5 = 'postcode';
+		const ADDRESS_COUNTRY = 'country';
 		
 		const ADDRESS_SEPARATOR = ',';
 		
