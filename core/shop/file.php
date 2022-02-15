@@ -21,7 +21,7 @@
 	final class QShop implements QShop_Interface {
 		private $factory = null;
 		
-		const CUSTOMER = '__customer__';
+		const CUSTOMER = '__customer';
 		
 		const ADDRESS_LINE_1 = 'house';
 		const ADDRESS_LINE_2 = 'street';
