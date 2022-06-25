@@ -8,7 +8,7 @@
 	 */
 	 
 	final class QCommon {
-		const ADMINISTRATOR = 'leslietquinn@yandex.com';
+		const ADMINISTRATOR = 'email@yandex.com';
 		const SESSION_NAME = '__sessionname__';
 		const SESSION_TTL = '__ttl__';
 		
